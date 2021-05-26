@@ -5,4 +5,4 @@ ERRORS UNABLE TO RESOLVE BEFORE SUBMIT
 
 Due to errors unable to get code up and running to check functionality. 
 
-filled in functions in app.js to at least practice writing them 
+filled in functions in app.js to at least practice writing them
