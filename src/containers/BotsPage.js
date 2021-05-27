@@ -24,12 +24,13 @@ class BotsPage extends Component {
 
   addBot = (newBot) => {
 
-    if(!this.state.myBots.find(bot => bot === newBot)){
-      const botExists = this.state.bots.find(bot => bot = newBot)
-      this.setState((state)=> ({
-        myArmy: [...state.myBots, botExists]
-      }))
-    }
+    // if(!this.state.myBots.find(bot => bot === newBot)){
+    //   const botExists = this.state.bots.find(bot => bot = newBot)
+    //   this.setState((state)=> ({
+    //     myArmy: [...state.myBots, botExists]
+    //   }))
+    // }
+
     // fetch(`${botApi}/${bot.id}`, {
     //   method: 'POST',
     //   headers,
