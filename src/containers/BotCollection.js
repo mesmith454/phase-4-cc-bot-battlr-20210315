@@ -1,33 +1,23 @@
 import React, { Component } from "react";
-//  
-import BotSpecs from './components/BotSpecs';
-const botApi = "http://localhost:6001"
+import BotSpecs from '../components/BotSpecs';
+// const botApi = "http://localhost:6001"
 
 class BotCollection extends Component {
-  state = {
-    allBots: [...botApi],
-  }
+  // state ={
+  //   allBots: []
+  // }
 
   render() {
     return(
       <div className="ui four column grid">
         <div className="row">
-           {this.props.allBots.map((bot) =>
+           {this.props.bots.map((bot) =>
               <BotSpecs
-              // Bot = {bot}
-              // id = {bot.id}
-              // name = {bot.name}
-              // health = {bot.health}
-              // damage = {bot.damage}
-              // armor = {bot.armor}
-              // botClass = {bot.bot_class}
-              // catchphrase = {bot.catchphrase}
-              // avatar = {bot.avatar_url}
-
+              bot = {bot}
               addBot = {this.props.addBot}
-              
-            />
-           )}
+              dischargeBot = {this.props.dischargeBot}
+              />
+            )}
            </div>
            Collection of all bots
           </div>
