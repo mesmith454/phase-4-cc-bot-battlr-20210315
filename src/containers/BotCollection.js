@@ -14,17 +14,15 @@ class BotCollection extends Component {
            {this.props.bots.map((bot) =>
               <BotSpecs
               bot = {bot}
-              addBot = {this.props.addBot}
-              dischargeBot = {this.props.dischargeBot}
+              key = {bot.id}
+              handleRec = {this.props.handleRec}
+              handleDis = {this.props.handleDis}
               />
             )}
            </div>
            Collection of all bots
           </div>
-        )
-        
-          
-             
+        )        
   }
 }
 

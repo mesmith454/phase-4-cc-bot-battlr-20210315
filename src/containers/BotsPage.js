@@ -21,31 +21,27 @@ class BotsPage extends Component {
       .then((bots) => this.setState({ bots }))
   }
 
-
-  addBot = (newBot) => {
-
-    // if(!this.state.myBots.find(bot => bot === newBot)){
-    //   const botExists = this.state.bots.find(bot => bot = newBot)
-    //   this.setState((state)=> ({
-    //     myArmy: [...state.myBots, botExists]
-    //   }))
-    // }
-
-    // fetch(`${botApi}/${bot.id}`, {
-    //   method: 'POST',
-    //   headers,
-    //   body: JSON.stringify({bot})
-    // })
-    // .then(() => {
-    //   const newBot = {...bot, myBots};
-    //   this.setState({
-    //     bots: this.state.myBots.map((b) => (b === bot ? newBot : b)),
-    //   })
-    // })
+  
+  recBot = (bot, recruit) => {
+    fetch(`${botApi}`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({recruit})
+    })
+    .then(() => {
+      const newBot = {...bot, recruit};
+      this.setState({
+        bots: this.state.bots.map((b) => (b === bot ? newBot : b)),
+      })
+    })
   };
 
+  addBot = (bot) => {
+    this.recBot(bot, true)
+  }
+
   releaseBot = bot => {
-    this.addBot(bot, false)
+    this.recBot(bot, false)
   }
 
   dischargeBot = (bot) => {
@@ -55,17 +51,23 @@ class BotsPage extends Component {
     })
       .then(() =>
         this.setState({
-          bots: this.state.bots.filter((bot) => bot.id !== bot)
+          bots: this.state.bots.filter((b) => b !== bot)
         }))
   };
 
   render() {
     return <div>
       <div>
-        <YourBotArmy bots={this.state.myBots}/>
+        <YourBotArmy 
+        handleRel={this.releaseBot}
+        handleDis={this.dischargeBot}
+        handleRec={this.addBot}
+        bots={this.state.bots.filter((bot) => bot.recruit)}/>
       </div>
       <div>
-        <BotCollection bots={this.state.bots}/>
+        <BotCollection 
+        handleRec={this.addBot}
+        bots={this.state.bots}/>
       </div>
     </div>;
   }

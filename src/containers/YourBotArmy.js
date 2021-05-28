@@ -3,9 +3,9 @@ import BotCard from "../components/BotCard.js";
 
 //simplify stupid
 class YourBotArmy extends Component {
-  // state = {
-  //   myBots: [],
-  // }
+  state = {
+    myBots: [],
+  }
 
   render() {
     return (
@@ -14,9 +14,10 @@ class YourBotArmy extends Component {
           <div className="row bot-army-row">
             {this.props.bots.map((bot) => 
               <BotCard
-                bot={bot.id}
-                release = {this.props.releaseBot}
-                discharge = {this.props.dischargeBot} 
+                bot = {bot}
+                key={bot.id}
+                handleRel= {this.props.handleRel}
+                handleDis = {this.props.handleDis} 
               />
             )}
             Your Bot Army
