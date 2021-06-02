@@ -9,7 +9,7 @@ const botTypeClasses = {
   Captain: "icon star"
 };
 
-const BotSpecs = props => {
+const BotSpecs = (props, {recruitBot}) => {
   return (
     <div className="ui segment">
       <div className="ui two column centered grid">
@@ -60,11 +60,8 @@ const BotSpecs = props => {
             </button>
             <button
               className="ui button fluid"
-              onClick={() =>
-                console.log(
-                  "connect this to a function that adds this bot to your bot army list"
-                )
-              }
+              onClick={recruitBot}
+              
             >
               Enlist
             </button>

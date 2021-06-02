@@ -9,13 +9,13 @@ const botTypeClasses = {
   Captain: "icon star"
 };
 
-const BotCard = props => {
+const BotCard = (props, {handleClick, handleDis}) => {
   return (
     <div className="ui column">
       <div
-        className="ui card"
+        className="ui card" 
         key={props.bot.id}
-        onClick={() => console.log("add code to connect event listener")}
+        onClick={() => props.handleClick(props.bot)}
       >
         <div className="image">
           <img alt="oh no!" src={props.bot.avatar_url} />
@@ -47,8 +47,10 @@ const BotCard = props => {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
+                onClick={(e) => {
+                  e.stopPropagation();
+                  props.handleDis(props.bot)
+                  }
                 }
               >
                 x
